@@ -114,8 +114,115 @@
 #  patient_data:
 #
 
-services:
+#services:
+#
+#  patientdb:
+#    container_name: patientdb
+#    image: mysql:8
+#    ports:
+#      - "3308:3306"
+#    environment:
+#      MYSQL_DATABASE: patientdb
+#      MYSQL_ROOT_PASSWORD: root
+#    volumes:
+#      - patient_data:/var/lib/mysql
+#      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+#    healthcheck:
+#      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+#      timeout: 10s
+#      retries: 10
+#      interval: 10s
+#      start_period: 10s
+#    networks:
+#      - healthcare
+#
+#  eurekaserver:
+#    image: jirawah/eurekaserver:latest
+#    container_name: eurekaserver-ms
+#    ports:
+#      - "8070:8070"
+#    depends_on:
+##      configserver:
+##        condition: service_healthy
+#      - patientdb
+#    healthcheck:
+#      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8070/actuator/health/readiness"]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+#      start_period: 10s
+#    extends:
+#      file: common-config.yml
+#      service: microservice-configserver-config
+#    environment:
+#      SPRING_APPLICATION_NAME: "eurekaserver"
+#    networks:
+#      - healthcare
+#
+#  configserver:
+#    image: jirawah/configserver:latest
+#    container_name: configserver-ms
+#    ports:
+#      - "8071:8071"
+#    healthcheck:
+#      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8071/actuator/health/readiness"]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 5
+#      start_period: 10s
+#    depends_on:
+##      patientdb:
+##        condition: service_healthy
+#      - eurekaserver
+#      - patientdb
+#    extends:
+#      file: common-config.yml
+#      service: microservice-base-config
+#    networks:
+#      - healthcare
+#
+#  mspatient:
+#    image: jirawah/ms-patient:latest
+#    container_name: mspatient-ms
+#    ports:
+#      - "8081:8081"
+#    depends_on:
+#      configserver:
+#        condition: service_healthy
+#      eurekaserver:
+#        condition: service_healthy
+#      patientdb:
+#        condition: service_healthy
+#    extends:
+#      file: common-config.yml
+#      service: microservice-base-config
+#    networks:
+#      - healthcare
+#
+#  webapp:
+#    image: jirawah/webapp:latest
+#    container_name: webapp-ms
+#    ports:
+#      - "8082:8082"
+#    depends_on:
+#      configserver:
+#        condition: service_healthy
+#      eurekaserver:
+#        condition: service_healthy
+#    extends:
+#      file: common-config.yml
+#      service: microservice-base-config
+#    networks:
+#      - healthcare
+#
+#networks:
+#  healthcare:
+#    external: false
+#
+#volumes:
+#  patient_data:
 
+services:
   patientdb:
     container_name: patientdb
     image: mysql:8
@@ -136,21 +243,42 @@ services:
     networks:
       - healthcare
 
+  configserver:
+    image: jirawah/configserver:latest
+    container_name: configserver-ms
+    ports:
+      - "8071:8071"
+    healthcheck:
+      test: [ "CMD", "curl", "--fail", "--silent", "http://localhost:8071/actuator/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    depends_on:
+      patientdb:
+        condition: service_healthy
+    extends:
+      file: common-config.yml
+      service: microservice-base-config
+    networks:
+      - healthcare
+
   eurekaserver:
     image: jirawah/eurekaserver:latest
     container_name: eurekaserver-ms
     ports:
       - "8070:8070"
-    depends_on:
-#      configserver:
-#        condition: service_healthy
-      - patientdb
     healthcheck:
-      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8070/actuator/health/readiness"]
+      test: [ "CMD", "curl", "--fail", "--silent", "http://localhost:8070/actuator/health" ]
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 10s
+    depends_on:
+      configserver:
+        condition: service_healthy
+      patientdb:
+        condition: service_healthy
     extends:
       file: common-config.yml
       service: microservice-configserver-config
@@ -159,33 +287,17 @@ services:
     networks:
       - healthcare
 
-  configserver:
-    image: jirawah/configserver:latest
-    container_name: configserver-ms
+  mspatient:
+    image: jirawah/mspatient:latest
+    container_name: mspatient-ms
     ports:
-      - "8071:8071"
+      - "8081:8081"
     healthcheck:
-      test: ["CMD", "curl", "--fail", "--silent", "http://localhost:8071/actuator/health/readiness"]
+      test: [ "CMD", "curl", "--fail", "--silent", "http://localhost:8081/actuator/health" ]
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 10s
-    depends_on:
-#      patientdb:
-#        condition: service_healthy
-      - eurekaserver
-      - patientdb
-    extends:
-      file: common-config.yml
-      service: microservice-base-config
-    networks:
-      - healthcare
-
-  mspatient:
-    image: jirawah/ms-patient:latest
-    container_name: mspatient-ms
-    ports:
-      - "8081:8081"
     depends_on:
       configserver:
         condition: service_healthy
@@ -209,6 +321,8 @@ services:
         condition: service_healthy
       eurekaserver:
         condition: service_healthy
+      mspatient:
+        condition: service_healthy
     extends:
       file: common-config.yml
       service: microservice-base-config
@@ -221,4 +335,5 @@ networks:
 
 volumes:
   patient_data:
+
 
