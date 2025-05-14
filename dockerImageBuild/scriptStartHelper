@@ -1,0 +1,10 @@
+cd C:\Users\StagiaireDEV\Desktop\Projets\HealthCareProto\dockerImageBuild
+.\imageCreationScript.ps1
+
+Or
+
+You can go to the dockerImageBuild folder through file explorer and click on the ImageBuilderExecution.bat file
+
+cd C:\Users\StagiaireDEV\Desktop\Projets\HealthCareProto\docker-compose\prod
+docker-compose down
+docker-compose up -d

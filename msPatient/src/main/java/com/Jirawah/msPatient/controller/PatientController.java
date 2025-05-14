@@ -1,6 +1,6 @@
 package com.Jirawah.msPatient.controller;
 
-import com.Jirawah.msPatient.model.Patient;
+import com.Jirawah.msPatient.model.PatientModel;
 import com.Jirawah.msPatient.service.PatientService;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,22 +17,22 @@ public class PatientController {
     }
 
     @GetMapping
-    public List<Patient> getAll() {
+    public List<PatientModel> getAll() {
         return service.getAll();
     }
 
     @GetMapping("/{id}")
-    public Patient getById(@PathVariable Long id) {
+    public PatientModel getById(@PathVariable Long id) {
         return service.getById(id);
     }
 
     @PostMapping
-    public Patient create(@RequestBody Patient patient) {
+    public PatientModel create(@RequestBody PatientModel patient) {
         return service.save(patient);
     }
 
     @PutMapping("/{id}")
-    public Patient update(@PathVariable Long id, @RequestBody Patient patient) {
+    public PatientModel update(@PathVariable Long id, @RequestBody PatientModel patient) {
         return service.update(id, patient);
     }
 

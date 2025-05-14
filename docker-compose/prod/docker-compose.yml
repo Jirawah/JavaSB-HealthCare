@@ -230,7 +230,7 @@ services:
       - "3308:3306"
     environment:
       MYSQL_DATABASE: patientdb
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: Emma@Kiko3615!
     volumes:
       - patient_data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
@@ -240,6 +240,22 @@ services:
       retries: 10
       interval: 10s
       start_period: 10s
+    networks:
+      - healthcare
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - "8083:80"  # Accès via http://localhost:8083 (8082 est déjà pris par webapp)
+    environment:
+      PMA_HOST: patientdb  # Doit correspondre à "container_name" du service patientdb
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: Emma@Kiko3615!
+    depends_on:
+      patientdb:
+        condition: service_healthy
     networks:
       - healthcare
 
@@ -316,6 +332,11 @@ services:
     container_name: webapp-ms
     ports:
       - "8082:8082"
+    healthcheck:
+      test: [ "CMD", "curl", "--fail", "--silent", "http://localhost:8082/actuator/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
     depends_on:
       configserver:
         condition: service_healthy
@@ -335,5 +356,7 @@ networks:
 
 volumes:
   patient_data:
+
+
 
 
