@@ -7,6 +7,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "patient")
 public class PatientModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -4,7 +4,7 @@ Start Script:
 
 Or
 
-You can go to the dockerImageBuild folder through file explorer and click on the ImageBuilderExecution.bat file
+You can go to the dockerImageBuild folder () through file explorer and click on the ImageBuilderExecution.bat file
 
 real-time verification of microservices :
     while ($true) { Clear-Host; docker ps; Start-Sleep -Seconds 1 }

@@ -1,3 +1,4 @@
 CREATE USER 'msuser'@'%' IDENTIFIED BY 'msuserpwd';
 GRANT ALL PRIVILEGES ON patientdb.* TO 'msuser'@'%';
 FLUSH PRIVILEGES;
+CREATE DATABASE IF NOT EXISTS patientdb;
