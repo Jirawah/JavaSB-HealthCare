@@ -300,6 +300,7 @@ services:
       service: microservice-configserver-config
     environment:
       SPRING_APPLICATION_NAME: "eurekaserver"
+      SPRING_PROFILES_ACTIVE: "eurekaserver"
     networks:
       - healthcare
 
