@@ -1,0 +1,22 @@
+.home-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+
+  .home-card {
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: white;
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: #666;
+    }
+  }
+}
