@@ -26,6 +26,7 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent {
 
   loginForm: FormGroup;
@@ -51,8 +52,9 @@ export class LoginComponent {
         this.snackBar.open('Connexion réussie !', 'Fermer', { duration: 3000 });
         this.router.navigate(['/']); // Redirection après connexion
       },
-      error: () => {
-        this.snackBar.open('Identifiants invalides.', 'Fermer', { duration: 3000 });
+      error: (err) => {
+        const errorMsg = err?.error || 'Identifiants invalides.';
+        this.snackBar.open(errorMsg, 'Fermer', { duration: 3000 });
       }
     });
   }

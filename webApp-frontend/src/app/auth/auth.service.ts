@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { RegisterRequest } from '../model/registerRequest.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:8082/auth'; // ✅ À ajuster si tu utilises un reverse proxy ou Docker différent.
+  private apiUrl = 'http://localhost:8082/auth';
 
   constructor(private http: HttpClient) {}
 
@@ -15,7 +16,7 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/login`, credentials);
   }
 
-  register(data: { username: string; email: string; password: string }): Observable<any> {
+  register(data: RegisterRequest): Observable<any> {
     return this.http.post(`${this.apiUrl}/register`, data);
   }
 

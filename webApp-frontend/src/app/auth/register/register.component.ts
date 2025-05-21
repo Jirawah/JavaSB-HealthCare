@@ -49,10 +49,11 @@ export class RegisterComponent {
     this.authService.register(this.registerForm.value).subscribe({
       next: () => {
         this.snackBar.open('Inscription réussie !', 'Fermer', { duration: 3000 });
-        this.router.navigate(['/login']); // Redirection vers la page de login
+        this.router.navigate(['/login']);
       },
-      error: () => {
-        this.snackBar.open('Erreur lors de l\'inscription.', 'Fermer', { duration: 3000 });
+      error: (err) => {
+        const errorMessage = err?.error?.message || 'Erreur lors de l\'inscription.';
+        this.snackBar.open(errorMessage, 'Fermer', { duration: 4000 });
       }
     });
   }

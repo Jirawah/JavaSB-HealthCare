@@ -1,6 +1,21 @@
-<div class="home-wrapper">
+<!-- <div class="home-wrapper">
   <mat-card class="home-card">
     <h2>Bienvenue sur HealthCare App</h2>
     <p>Connectez-vous ou créez un compte pour accéder aux services.</p>
+  </mat-card>
+</div> -->
+
+<div class="home-wrapper">
+  <mat-card class="home-card">
+    <h2>Bienvenue sur HealthCare App</h2>
+
+    <p *ngIf="!isLoggedIn">
+      Connectez-vous ou créez un compte pour accéder aux services.
+    </p>
+
+    <p *ngIf="isLoggedIn">
+      Vous êtes connecté. Accédez librement aux fonctionnalités de l'application.
+    </p>
+
   </mat-card>
 </div>
