@@ -17,6 +17,14 @@ public class AuthService {
     private final JwtUtil jwtUtil;
 
     public User register(RegisterRequest request) {
+        if (userRepository.existsByUsername(request.getUsername())) {
+            throw new RuntimeException("Nom d'utilisateur déjà utilisé.");
+        }
+
+        if (userRepository.existsByEmail(request.getEmail())) {
+            throw new RuntimeException("Email déjà utilisé.");
+        }
+
         User user = new User();
         user.setUsername(request.getUsername());
         user.setEmail(request.getEmail());
