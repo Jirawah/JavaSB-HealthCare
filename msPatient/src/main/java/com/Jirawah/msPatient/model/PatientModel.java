@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "patients") // 📝 Pluriel recommandé pour une meilleure lisibilité
+@Table(name = "patients")
 public class PatientModel {
 
     @Id
@@ -24,6 +24,8 @@ public class PatientModel {
     private String address;
     private String email;
 
+//    @Column(nullable = false)
+//    private String createdBy;
    // @ManyToOne
    // private User medecin;
 }
