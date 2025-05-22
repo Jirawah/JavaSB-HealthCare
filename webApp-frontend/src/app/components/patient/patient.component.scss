@@ -1,12 +1,105 @@
-.patients-card {
-  padding: 1rem;
+// .page-wrapper {
+//   padding: 3rem 1rem;
+//   display: flex;
+//   justify-content: center;
+// }
 
-  table {
+// .patients-card {
+//   padding: 2rem;
+//   background-color: #1e1e1e;
+//   color: #fff;
+//   border-radius: 12px;
+//   width: 100%;
+//   max-width: 1200px; // 👈 limite la largeur sur grand écran
+
+//   .header {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     margin-bottom: 1.5rem;
+//   }
+
+//   .patients-table {
+//     width: 100%;
+
+//     th,
+//     td {
+//       padding: 1rem 0.5rem;
+//     }
+//   }
+
+//   button {
+//     margin: 0 4px;
+//   }
+
+//   .footer-actions {
+//     display: flex;
+//     justify-content: flex-end;
+//     margin-top: 2rem;
+
+//     button {
+//       font-weight: 600;
+//     }
+//   }
+// }
+
+.page-wrapper {
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.patients-card {
+  padding: 2rem;
+  background-color: #1e1e1e;
+  color: #fff;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 1200px;
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .patients-table {
     width: 100%;
-    margin-top: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+
+    th {
+      background-color: #3b3b3b; // tête de colonne légèrement plus claire
+      color: #fff;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    td {
+      background-color: #2e2e2e; // cellules lisibles
+      color: #ddd;
+    }
+
+    th,
+    td {
+      padding: 1rem 0.75rem;
+      border-bottom: 1px solid #444; // lignes de séparation
+    }
+
+    tr:hover td {
+      background-color: #3a3a3a; // effet hover doux
+    }
   }
 
   button {
-    margin-right: 5px;
+    margin: 0 4px;
+  }
+
+  .footer-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+
+    button {
+      font-weight: 600;
+    }
   }
 }

@@ -8,12 +8,13 @@
 <router-outlet></router-outlet> -->
 
 <mat-toolbar color="primary">
-  <span>{{ title }}</span>
+  <span>HealthCare App</span>
   <span class="spacer"></span>
 
   <a mat-button routerLink="/">Accueil</a>
   <a mat-button routerLink="/login" *ngIf="!isLoggedIn">Connexion</a>
   <a mat-button routerLink="/register" *ngIf="!isLoggedIn">Inscription</a>
+  <a mat-button routerLink="/patients" *ngIf="isLoggedIn">Patients</a>
 
   <button mat-button *ngIf="isLoggedIn" (click)="logout()">Déconnexion</button>
 </mat-toolbar>
