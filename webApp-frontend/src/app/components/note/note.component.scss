@@ -1,0 +1,43 @@
+.page-wrapper {
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.notes-card {
+  padding: 2rem;
+  background-color: #1e1e1e;
+  color: #fff;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 1000px;
+
+  h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+
+  .notes-table {
+    width: 100%;
+
+    th,
+    td {
+      padding: 1rem 0.5rem;
+    }
+
+    mat-icon {
+      color: #e1bee7; // Icônes violettes pour rester dans l'esprit du bouton "Create a new patient"
+    }
+  }
+
+  .footer-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+
+    button {
+      font-weight: 600;
+    }
+  }
+}

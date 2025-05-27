@@ -94,8 +94,8 @@ export class PatientsComponent implements OnInit {
   }
 
   manageNotes(id: number): void {
-    console.log('Manage notes for', id);
-  }
+  this.router.navigate(['/patients', id, 'notes']);
+}
 
   generateScore(id: number): void {
     console.log('Generate score for', id);

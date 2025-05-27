@@ -1,16 +1,4 @@
 import { Routes } from '@angular/router';
-// import { HomeComponent } from './home/home.component';
-// import { LoginComponent } from './auth/login/login.component';
-// import { RegisterComponent } from './auth/register/register.component';
-// import { PatientsComponent } from './components/patient/patient.component';
-
-// export const routes: Routes = [
-//   { path: '', title: 'Accueil', component: HomeComponent },
-//   { path: 'login', title: 'Connexion', component: LoginComponent },
-//   { path: 'register', title: 'Inscription', component: RegisterComponent },
-//   { path: 'patients', title: 'Patients', component: PatientsComponent },
-//   { path: '**', redirectTo: '' }
-// ];
 
 export const routes: Routes = [
   {
@@ -38,11 +26,26 @@ export const routes: Routes = [
     title: 'Ajouter un patient',
     loadComponent: () => import('./components/patient-form/patient-form.component').then(m => m.PatientFormComponent)
   },
-    {
+  {
     path: 'patients/edit/:id',
     loadComponent: () =>
       import('./components/patient-form/patient-form.component').then(m => m.PatientFormComponent),
     title: 'Modifier un patient'
+  },
+  {
+    path: 'patients/:id/notes',
+    title: 'Notes du patient',
+    loadComponent: () => import('./components/note/note.component').then(m => m.NoteComponent)
+  },
+  {
+    path: 'patients/:id/notes/new',
+    title: 'Ajouter une note',
+    loadComponent: () => import('./components/note-form/note-form.component').then(m => m.NoteFormComponent)
+  },
+  {
+    path: 'patients/:id/notes/edit/:noteId',
+    title: 'Modifier une note',
+    loadComponent: () => import('./components/note-form/note-form.component').then(m => m.NoteFormComponent)
   },
   {
     path: '**',

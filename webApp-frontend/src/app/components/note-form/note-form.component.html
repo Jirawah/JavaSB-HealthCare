@@ -1,0 +1,15 @@
+<mat-card class="note-form-card">
+  <h2>{{ isEditMode ? 'Edit Note' : 'Add a New Note' }}</h2>
+
+  <form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Note</mat-label>
+      <textarea matInput formControlName="note" rows="5"></textarea>
+    </mat-form-field>
+
+    <div class="form-actions">
+      <button mat-stroked-button color="primary" type="button" (click)="onBack()">Retour</button>
+      <button mat-raised-button color="accent" type="submit">{{ isEditMode ? 'Update' : 'Create' }} Note</button>
+    </div>
+  </form>
+</mat-card>

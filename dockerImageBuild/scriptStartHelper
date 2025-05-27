@@ -16,21 +16,25 @@ real-time verification of microservices :
     docker-compose up -d
 
     cd C:\Users\StagiaireDEV\Desktop\Projets\HealthCareProto\configServer
-    mvn clean install -DskipTests
+    mvn clean package -DskipTests
     docker build -t jirawah/configserver:latest .
 
     cd C:\Users\StagiaireDEV\Desktop\Projets\HealthCareProto\eurekaServer
-    mvn clean install -DskipTests
+    mvn clean package -DskipTests
     docker build -t jirawah/eurekaserver:latest .
 
     cd C:\Users\StagiaireDEV\Desktop\Projets\HealthCareProto\msPatient
-    mvn clean install -DskipTests
+    mvn clean package -DskipTests
     docker build -t jirawah/mspatient:latest .
 
     cd C:\Users\StagiaireDEV\Desktop\Projets\HealthCareProto\webApp
-    mvn clean install -DskipTests
+    mvn clean package -DskipTests
     docker build -t jirawah/webapp:latest .
 
     cd C:\Users\StagiaireDEV\Desktop\Projets\HealthCareProto\msNote
     mvn clean package -DskipTests
     docker build -t jirawah/msnote:latest .
+
+    cd C:\Users\StagiaireDEV\Desktop\Projets\HealthCareProto\msScore
+    mvn clean package -DskipTests
+    docker build -t jirawah/msscore:latest .

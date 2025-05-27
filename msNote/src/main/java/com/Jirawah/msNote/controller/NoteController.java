@@ -11,7 +11,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/notes")
-@CrossOrigin(origins = "*") // À adapter si besoin pour autoriser les requêtes Angular
+//@CrossOrigin(origins = "*") // À adapter si besoin pour autoriser les requêtes Angular
+@CrossOrigin(origins = "http://localhost:4200")
 public class NoteController {
 
     private final NoteService noteService;

@@ -124,6 +124,24 @@ services:
     networks:
       - healthcare
 
+  msscore:
+    image: jirawah/msscore:latest
+    container_name: msscore-ms
+    ports:
+      - "8084:8084"
+    environment:
+      - SPRING_PROFILES_ACTIVE=msscore
+    depends_on:
+      configserver:
+        condition: service_healthy
+      eurekaserver:
+        condition: service_healthy
+    extends:
+      file: common-config.yml
+      service: microservice-base-config
+    networks:
+      - healthcare
+
   mongodb:
     image: mongo
     container_name: mongodb
