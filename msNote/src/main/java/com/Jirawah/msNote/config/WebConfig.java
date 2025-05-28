@@ -1,4 +1,4 @@
-package com.Jirawah.msNote.security;
+package com.Jirawah.msNote.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

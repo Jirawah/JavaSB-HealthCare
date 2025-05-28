@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/eurekaServer/pom.xml" />
         <option value="$PROJECT_DIR$/msPatient/pom.xml" />
         <option value="$PROJECT_DIR$/msNote/pom.xml" />
+        <option value="$PROJECT_DIR$/msScore/pom.xml" />
       </list>
     </option>
   </component>

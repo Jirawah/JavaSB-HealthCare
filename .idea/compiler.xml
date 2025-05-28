@@ -3,7 +3,7 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Annotation profile for msNote" enabled="true">
+      <profile name="Annotation profile for webApp" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -11,8 +11,9 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
         </processorPath>
         <module name="webApp" />
-        <module name="msNote" />
+        <module name="msScore" />
         <module name="msPatient" />
+        <module name="msNote" />
         <module name="eurekaServer" />
         <module name="configServer" />
       </profile>
@@ -24,6 +25,7 @@
       <module name="eurekaServer" options="-parameters" />
       <module name="msNote" options="-parameters" />
       <module name="msPatient" options="-parameters" />
+      <module name="msScore" options="-parameters" />
       <module name="webApp" options="-parameters" />
     </option>
   </component>
