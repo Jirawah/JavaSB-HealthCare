@@ -48,6 +48,11 @@ export const routes: Routes = [
     loadComponent: () => import('./components/note-form/note-form.component').then(m => m.NoteFormComponent)
   },
   {
+  path: 'patients/:id/score',
+  title: 'Score du patient',
+  loadComponent: () => import('./components/score/score.component').then(m => m.ScoreComponent)
+  },
+  {
     path: '**',
     redirectTo: ''
   }

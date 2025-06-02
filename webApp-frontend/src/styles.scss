@@ -21,3 +21,32 @@ a {
 }
 
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// .return-button {
+//   font-weight: 600;
+//   color: #e1bee7; // violet clair
+//   margin-top: 2rem;
+//   align-self: flex-end;
+
+//   &:hover {
+//     text-decoration: underline;
+//   }
+// }
+.return-button {
+  font-weight: 600;
+  color: #e1bee7;
+  border: 1px solid #e1bee7;
+  background: transparent;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: #e1bee7;
+    color: #1e1e1e;
+    text-decoration: none;
+  }
+}
+

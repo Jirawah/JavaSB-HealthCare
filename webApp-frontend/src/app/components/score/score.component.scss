@@ -1,0 +1,36 @@
+.page-wrapper {
+  padding: 3rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.score-card {
+  padding: 2rem;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 700px;
+
+  h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  .score-field {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+
+    strong {
+      color: #ffcc00;
+      font-weight: 600;
+    }
+  }
+
+  .footer-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+  }
+}

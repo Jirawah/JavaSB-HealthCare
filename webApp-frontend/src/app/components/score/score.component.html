@@ -1,0 +1,35 @@
+<!-- <mat-card *ngIf="score">
+  <h2>Diabetes Risk Score</h2>
+  <p><strong>Patient:</strong> {{ score.patientFullName }}</p>
+  <p><strong>Age:</strong> {{ score.age }}</p>
+  <p><strong>Trigger Count:</strong> {{ score.triggerCount }}</p>
+  <p><strong>Risk Level:</strong> {{ score.riskLevel }}</p>
+</mat-card> -->
+
+<!-- <div class="page-wrapper">
+  <mat-card class="score-card" *ngIf="score">
+    <h2>Diabetes Risk Score</h2>
+    <p class="score-field"><strong>Patient:</strong> {{ score.patientFullName }}</p>
+    <p class="score-field"><strong>Age:</strong> {{ score.age }}</p>
+    <p class="score-field"><strong>Trigger Count:</strong> {{ score.triggerCount }}</p>
+    <p class="score-field"><strong>Risk Level:</strong> {{ score.riskLevel }}</p>
+
+    <div class="footer-actions">
+        <button mat-stroked-button color="accent" routerLink="/patients">Retour</button>
+    </div>
+  </mat-card>
+</div> -->
+
+<div class="page-wrapper">
+  <mat-card class="score-card" *ngIf="score">
+    <h2>Diabetes Risk Score</h2>
+    <p class="score-field"><strong>Patient:</strong> {{ score.patientFullName }}</p>
+    <p class="score-field"><strong>Age:</strong> {{ score.age }}</p>
+    <p class="score-field"><strong>Trigger Count:</strong> {{ score.triggerCount }}</p>
+    <p class="score-field"><strong>Risk Level:</strong> {{ score.riskLevel }}</p>
+
+    <div class="footer-actions">
+      <button mat-button class="return-button" routerLink="/patients">Retour</button>
+    </div>
+  </mat-card>
+</div>
