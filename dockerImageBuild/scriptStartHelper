@@ -1,3 +1,5 @@
+This script aims to generate all microservices images (frontend & backend) and launch docker-compose.
+
 Start Script:
     cd C:\Users\StagiaireDEV\Desktop\Projets\HealthCareProto\dockerImageBuild
     .\imageCreationScript.ps1
@@ -8,7 +10,6 @@ You can go to the dockerImageBuild folder through file explorer and click on the
 
 real-time verification of microservices :
     while ($true) { Clear-Host; docker ps; Start-Sleep -Seconds 1 }
-
 
 
     cd C:\Users\StagiaireDEV\Desktop\Projets\HealthCareProto\docker-compose\prod
