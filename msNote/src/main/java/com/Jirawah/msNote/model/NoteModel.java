@@ -16,10 +16,7 @@ public class NoteModel {
 
     @Id
     private String id;
-
-    private String patientId; // identifiant du patient auquel la note est rattachée
-
-    private String note;   // contenu de la note
-
-    private LocalDate noteDate;   // date d'enregistrement de la note
+    private String patientId;
+    private String note;
+    private LocalDate noteDate;
 }

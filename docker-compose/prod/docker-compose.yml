@@ -186,6 +186,18 @@ services:
     networks:
       - healthcare
 
+  webapp-frontend:
+    build:
+      context: ../../webApp-frontend
+      dockerfile: Dockerfile
+    container_name: webapp-frontend-ms
+    ports:
+      - "4200:80"
+    depends_on:
+      - eurekaserver
+    networks:
+      - healthcare
+
 networks:
   healthcare:
     external: false

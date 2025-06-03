@@ -50,7 +50,7 @@ export class LoginComponent {
       next: (response) => {
         localStorage.setItem('token', response.token); // Stockage du JWT
         this.snackBar.open('Connexion réussie !', 'Fermer', { duration: 3000 });
-        this.router.navigate(['/']); // Redirection après connexion
+        this.router.navigate(['/']);
       },
       error: (err) => {
         const errorMsg = err?.error || 'Identifiants invalides.';

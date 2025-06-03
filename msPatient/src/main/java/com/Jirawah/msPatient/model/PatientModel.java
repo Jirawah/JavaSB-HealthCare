@@ -16,16 +16,11 @@ public class PatientModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String prenom;     // first name
-    private String nom;        // last name
+    private String prenom;
+    private String nom;
     private LocalDate birthday;
     private String gender;
     private String phone;
     private String address;
     private String email;
-
-//    @Column(nullable = false)
-//    private String createdBy;
-   // @ManyToOne
-   // private User medecin;
 }

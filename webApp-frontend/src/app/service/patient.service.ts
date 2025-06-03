@@ -8,7 +8,7 @@ import { Patient } from '../model/patient.model';
 })
 export class PatientService {
 
-  private apiUrl = 'http://localhost:8081/patients'; // ✅ URL du microservice msPatient
+  private apiUrl = 'http://localhost:8081/patients';
 
   constructor(private http: HttpClient) {}
 

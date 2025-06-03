@@ -13,7 +13,7 @@ public class NoteMapper {
                 null,
                 dto.getPatientId(),
                 dto.getNote(),
-                LocalDate.now() // On associe la date du jour lors de la création
+                LocalDate.now()
         );
     }
 
@@ -28,6 +28,6 @@ public class NoteMapper {
 
     public static void updateEntity(NoteModel note, NoteRequestDTO dto) {
         note.setNote(dto.getNote());
-        note.setNoteDate(LocalDate.now()); // Mise à jour de la date
+        note.setNoteDate(LocalDate.now());
     }
 }
