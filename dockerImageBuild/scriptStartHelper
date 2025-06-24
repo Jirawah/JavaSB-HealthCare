@@ -1,5 +1,7 @@
 This script aims to generate all microservices images (frontend & backend) and launch docker-compose.
 
+                !!! Consider changing the file path !!!
+
 Start Script:
     cd C:\Users\StagiaireDEV\Desktop\Projets\HealthCareProto\dockerImageBuild
     .\imageCreationScript.ps1
